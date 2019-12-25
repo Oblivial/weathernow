@@ -1,0 +1,29 @@
+body, html {
+  height: 100%;
+  background-color: #ececec;
+}
+.rect-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.view {
+  height: 100%;
+}
+.rect:hover{
+  background-color: #000;
+  padding-top: 0.6vh;
+  padding-bottom: 0.6vh;
+}
+.fixed-right-top{
+  position: fixed;
+  right: 0;
+  top: 7vh;
+}
+.weather-13, .weather-40, .weather-39, .weather-12, .weather-14{ /* Rain, "Shower" */
+  background-image: url("./images/rainbg.jpg");
+}
+.weather-35 {
+  background-image: url("./images/bgsun.jpg");
+}
