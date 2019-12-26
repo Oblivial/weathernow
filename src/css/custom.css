@@ -11,6 +11,23 @@ body, html {
 .view {
   height: 100%;
 }
+.width-full{
+  width: 100%;
+}
+.flex-basis{
+  flex-basis: 0;
+  flex-grow: 1;
+}
+.min-viewsize{
+  min-height: 14vh;
+  min-width: 14vh;
+}
+.placeholder{
+  min-height: 2vh
+}
+.faded{
+  background-color: rgba(0, 0, 0, 0.4);
+}
 .rect:hover{
   background-color: #000;
   padding-top: 0.6vh;
@@ -21,9 +38,31 @@ body, html {
   right: 0;
   top: 7vh;
 }
-.weather-13, .weather-40, .weather-39, .weather-12, .weather-14{ /* Rain, "Shower" */
+.weather-40, .weather-39, .weather-12, .weather-14, .weather-13, .weather-18{ /* Rain, "Shower" */
   background-image: url("./images/rainbg.jpg");
 }
+.weather-15, .weather-16, .weather-17, .weather-26{
+  background-image: url("./images/lightningbg.jpg");
+}
 .weather-35 {
-  background-image: url("./images/bgsun.jpg");
+  background-image: url("./images/bgpartlycloudy.jpg");
+}
+.weather-1, .weather-2, .weather-3, .weather-4, .weather-5, .weather-30{
+  background-image: url("./images/sunbg.jpg");
+}
+.weather-6, .weather-7, .weather-8, .weather-21{
+  background-image: url("./images/cloudybg.jpg");
+}
+.weather-19, .weather-20, .weather-21{
+  background-image: url("./images/bgflurries.jpg");
+}
+.weather-22, .weather-23, .weather-24, .weather-29, .weather-31{
+  background-image: url("./images/bgsnow.jpg");
+}
+.weather-9, .weather-25{
+  background-image: url("./images/bgfog.jpg");
+}
+.weather-image{
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
