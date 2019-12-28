@@ -4,20 +4,20 @@ const apiKeys = [
     "e3wPq5JCB0Kh3Peez3sqSZqoc3Srbwxa",
     "CTFuXV3uevbko0u0yXXohMDm1T82SBaH",
     "lsp68udgq2AmsnrGJ0hbUXGG85YgptrY",
-    "QdcV6RI3DA4nGAWEHl10TzhUWlF5qU1M"
+    "QdcV6RI3DA4nGAWEHl10TzhUWlF5qU1M",
+    "yAFOldxViRmO9vaBf4NZH23HKSgPpVoD"
 ];
 const Data = {
     cityName: "",
     hourly: false,
     setHourly: (value) => {
-      hourly = value;
+      Data.hourly = value;
     },
-    apiKeyIndex: 2,
+    apiKeyIndex: 4,
     setCityName: (value) => {
         Data.cityName = value;
     },
     fetchCurrentSelection: () => {
-        console.log("fetching fetchCurrentSelection")
         if(Data.hourly){
           Data.hourlyweather.fetch()
         }else{
@@ -50,7 +50,6 @@ const Data = {
                 console.log(items)
                 Data.cityKey = items[0].Key;
                 if(callback){
-                  console.log("calling callback...")
                   callback();
                 }
             }
@@ -66,6 +65,7 @@ const Data = {
         },
         list: [],
         fetch: () => {
+          Data.hourly = false;
             m.request({
                     method: "GET",
                     url: `http://dataservice.accuweather.com/forecasts/v1/daily/${Data.weatherthisweek.DaysToFetch}day/${Data.cityKey}?apikey=${apiKeys[Data.apiKeyIndex]}`
@@ -81,13 +81,10 @@ const Data = {
     },
     hourlyweather: {
         HoursToFetch: 0,
-        Text: "",
         HourlyForecasts: [],
-        Category: "",
         setHoursToFetch: (value) => {
             Data.hourlyweather.HoursToFetch = value
         },
-        list: [],
         fetch: () => {
             m.request({
                     method: "GET",
@@ -95,10 +92,7 @@ const Data = {
                 })
                 .then((items) => {
                     console.log(items);
-                    /*Data.weatherthisweek.list = items;
-                    Data.weatherthisweek.Text = items.Headline.Text;
-                    Data.weatherthisweek.DailyForecasts = items.DailyForecasts;
-                    Data.weatherthisweek.Category = items.Headline.Category;*/
+                    Data.hourlyweather.HourlyForecasts = items;
                 })
         }
     }

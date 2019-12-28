@@ -14,6 +14,9 @@ body, html {
 .width-full{
   width: 100%;
 }
+.dropdown-item:focus, .dropdown-item:hover {
+  color: #000 !important;
+}
 .flex-basis{
   flex-basis: 0;
   flex-grow: 1;
@@ -21,6 +24,10 @@ body, html {
 .min-viewsize{
   min-height: 14vh;
   min-width: 14vh;
+}
+.hour-container{
+  padding: 1rem;
+  margin: 2.8rem;
 }
 .placeholder{
   min-height: 2vh

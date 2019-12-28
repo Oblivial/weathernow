@@ -1,5 +1,9 @@
 const m = require("mithril");
 
+const convertTemperature = (value) => {
+    return String(parseInt((parseFloat(value) - 32) / 1.8)).concat(" " + String.fromCharCode(176).concat("C"));
+}
+
 const view = {
     view: (vnode) => {
         return  m("div", {id:"fcItemCity" + vnode.attrs.cityName + vnode.attrs.id, class:"jumbotron text-white flex-basis"}, [
@@ -7,10 +11,10 @@ const view = {
                   		m("label", {id:"date", class:"text-center width-full"}, vnode.attrs.data.Date.split("T")[0]),
                   		m("div", {id:"temperature", class:"d-flex justify-content-center"}, [
                   			m("div", {class:"flex-fill text-center"},
-                          m("label", {id:"mintemp"}, String(parseInt((parseFloat(vnode.attrs.data.Temperature.Minimum.Value) - 32) / 1.8)).concat(" " + String.fromCharCode(176).concat("C")))
+                          m("label", {id:"mintemp"}, convertTemperature(vnode.attrs.data.Temperature.Minimum.Value))
                         ),
                         m("div", {class:"flex-fill text-center"},
-                          m("label", {id:"maxtemp"}, String(parseInt((parseFloat(vnode.attrs.data.Temperature.Maximum.Value) - 32) / 1.8)).concat(" " + String.fromCharCode(176).concat("C")))
+                          m("label", {id:"maxtemp"}, convertTemperature(vnode.attrs.data.Temperature.Maximum.Value))
                         )
                       ]
                   		)

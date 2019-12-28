@@ -12,6 +12,7 @@ const view = {
       view.dropdowndnone = false;
     },
     fetchWeather: (hours) => {
+      Data.hourly = true;
       Data.hourlyweather.setHoursToFetch(hours);
       Data.hourlyweather.fetch();
     },
@@ -28,21 +29,23 @@ const view = {
                               itemid: 0,
                               text:"Hours",
                               activeitemid: view.activeitemid,
-                              switchItemid: () => {view.switchActiveitemid(0);view.openDropdown();}
+                              switchItemid: () => {view.switchActiveitemid(0);view.openDropdown();},
+                              onclick: () => {if(view.dropdowndnone){view.openDropdown()}}
                             }
             ),
             m("div", {
                 class: view.dropdowndnone ? "d-none" : "position-absolute bg-dark"
             }, [
                 m("a", {
-                    class: "dropdown-item",
+                    class: "dropdown-item text-white",
                     href: "#",
-                    onclick: () => {view.fetchWeather(1)},
+                    style: "margin-top: 2rem;",
+                    onclick: () => {view.fetchWeather(1)}
                 }, "1hrs."),
                 m("a", {
-                    class: "dropdown-item",
+                    class: "dropdown-item text-white",
                     href: "#",
-                    onclick: () => {view.fetchWeather(12)},
+                    onclick: () => {view.fetchWeather(12)}
                 }, "12hrs.")
             ]),
             m(SelectionItem, {
