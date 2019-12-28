@@ -7,6 +7,9 @@ const view = {
   changeDropdownState: () => {
     view.dnone = !view.dnone
   },
+  OnWindowClick: () => {
+        view.dnone ? undefined : view.changeDropdownState();
+  },
   view: () => {
       return m("div", {id:"menu-container", class:"pl-3"}, [
         m(Ui, {id: "nav-container", class: view.dnone ? "d-none" : ""}),

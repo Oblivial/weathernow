@@ -1,13 +1,13 @@
 const m = require("mithril");
 const Data = require("../WeatherDataResolver.js");
-const ForeCastItem = require("./ForeCastItem.js");
+const ForeCastItem = require("./ForecastItem.js");
 
 const components = {
       view: () => {
-          if(Data.DailyForecasts.length != 0){
+          if(Data.weatherthisweek.DailyForecasts.length != 0){
                 let components = [];
-                for(let i=0;i<5;i++){
-                    components.push(m(ForeCastItem, {id: i, cityName:Data.cityName, data:Data.DailyForecasts[i]}));
+                for(let i=0;i<Data.weatherthisweek.DaysToFetch;i++){
+                    components.push(m(ForeCastItem, {id: i, cityName:Data.cityName, data:Data.weatherthisweek.DailyForecasts[i]}));
                 }
                 return components;
          }

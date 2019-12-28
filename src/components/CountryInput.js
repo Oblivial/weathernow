@@ -1,4 +1,5 @@
 const m = require("mithril");
+const DaySelection = require("./input/Day-hour-selections.js");
 const Data = require("./WeatherDataResolver.js");
 
 const view = {
@@ -12,10 +13,13 @@ const view = {
                 oninput: (e) => {
                   Data.setCityName(e.target.value);
                 },
+                onchange: () => {
+                  Data.getCityKey(Data.fetchCurrentSelection);
+                },
                 value: Data.weatherthisweek.cityName,
                 required: true
             }),
-            m("button", {onclick: Data.weatherthisweek.fetch, type: "Submit", class:"btn btn-primary"}, "Submit")
+            m(DaySelection)
         ]))));
       }
 }
