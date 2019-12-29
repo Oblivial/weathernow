@@ -8,7 +8,6 @@ const convertTemperature = (value) => {
 
 const view = {
     view: (vnode) => {
-        console.log(vnode.attrs);
         return m("div", {
             id: "fcItemCity" + vnode.attrs.cityName + vnode.attrs.id,
             class: "text-white flex-basis min-viewsize hour-container"

@@ -13,7 +13,7 @@ const view = {
     },
     fetchWeather: (hours) => {
       Data.hourly = true;
-      Data.hourlyweather.setHoursToFetch(hours);
+      Data.hourlyweather.HoursToFetch = hours;
       Data.hourlyweather.fetch();
     },
     closeDropdown: () => {

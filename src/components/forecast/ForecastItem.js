@@ -1,3 +1,11 @@
+/**
+* JavaScript Modul: ForecastItem
+*
+* Daten wie Temperatur, Bild id, Niederschlag...
+* werden per virtual dom node (vnode) von der FoercastList an das ForeCastItem übergeben
+*/
+
+
 const m = require("mithril");
 
 const convertTemperature = (value) => {

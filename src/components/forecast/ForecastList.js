@@ -6,9 +6,7 @@ const ForeCastItemHourly = require("./ForecastItemHour.js");
 const components = {
     view: () => {
         let components = [];
-        if (Data.hourly && Data.hourlyweather.HourlyForecasts.length) {
-            console.log("hforecast: ", Data.hourlyweather);
-            console.log("hforecast: ", Data.hourlyweather.HourlyForecasts)
+        if (Data.hourly && Data.hourlyweather.HourlyForecasts.length === Data.hourlyweather.HoursToFetch) {
             for (let i = 0; i < Data.hourlyweather.HoursToFetch; i++) {
                 components.push(m(ForeCastItemHourly, {
                     id: i,
@@ -16,7 +14,7 @@ const components = {
                     data: Data.hourlyweather.HourlyForecasts[i]
                 }));
             }
-        } else if(Data.weatherthisweek.DailyForecasts.length > 0){
+        } else if(Data.weatherthisweek.DailyForecasts.length === Data.weatherthisweek.DaysToFetch){
               for (let i = 0; i < Data.weatherthisweek.DaysToFetch; i++) {
                   components.push(m(ForeCastItem, {
                       id: i,
