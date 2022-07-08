@@ -15,7 +15,7 @@
     "file-loader": "^5.0.2",
     "jquery": "^3.4.1",
     "mithril": "^2.0.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "popper.js": "^1.16.0",
     "style-loader": "^1.0.1"
   },
